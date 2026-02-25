@@ -1,0 +1,52 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Predicition</title>
+    </head>
+    <body>
+        <h2>House Predicition</h2>
+        <input type ="number" id ="sqft" placeholder="Enter SQFT">
+        <button onclick="getPredicition()">Predict</button>
+        <br>
+        <h3 id ="result"></h3>
+    </body>
+    <script>
+        async function getPredicition() {
+            let sqft = document.getElementById("sqft").value;
+            let res =await fetch(`http://127.0.0.1:8000/predict/${sqft}`);
+            let data =await res.json();
+            document.getElementById("result").innerHTML ="Price: $" + data.Predicted_price ;  
+        }
+    </script>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prediction</title>
+    </head>
+    <body>
+        <h2>House Prediction</h2>
+        <input type="number" id="sqft" placeholder="Enter SQFT">
+        <button onclick="getPrediction()">predict</button>
+        <br>
+        <h3 id="result"></h3>
+
+        <script>
+            async function getPrediction() {
+              
+                let sqft = document.getElementById("sqft").value;
+                
+                let res = await fetch(`http://127.0.0.1:8000/predict/${sqft}`);
+                
+               
+                let data = await res.json();
+                
+                console.log(data); 
+                
+                document.getElementById("result").innerHTML = "Price: $" + data.PredictedPrice;
+            }
+        </script>
+    </body>
+</html>
